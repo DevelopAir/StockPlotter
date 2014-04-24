@@ -17,8 +17,11 @@
 		E5B45E9117EC130400CA2E16 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B45E9017EC130400CA2E16 /* Default@2x.png */; };
 		E5B45E9317EC130400CA2E16 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5B45E9217EC130400CA2E16 /* Default-568h@2x.png */; };
 		E5B45E9617EC130500CA2E16 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B45E9417EC130500CA2E16 /* MainStoryboard.storyboard */; };
-		E5B45E9917EC130500CA2E16 /* SPMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B45E9817EC130500CA2E16 /* SPMasterViewController.m */; };
-		E5B45E9C17EC130500CA2E16 /* SPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B45E9B17EC130500CA2E16 /* SPDetailViewController.m */; };
+		E5B45E9917EC130500CA2E16 /* SPStockSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B45E9817EC130500CA2E16 /* SPStockSelectorViewController.m */; };
+		E5B45E9C17EC130500CA2E16 /* SPStockPlotterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B45E9B17EC130500CA2E16 /* SPStockPlotterView.m */; };
+		E5B45EA317EC284500CA2E16 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B45EA217EC284500CA2E16 /* QuartzCore.framework */; };
+		E5B45EA917ECD3DB00CA2E16 /* SPYahooGetStock.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B45EA817ECD3DB00CA2E16 /* SPYahooGetStock.m */; };
+		E5B45EAC17ECD41E00CA2E16 /* SPStockValue.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B45EAB17ECD41D00CA2E16 /* SPStockValue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +39,15 @@
 		E5B45E9017EC130400CA2E16 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		E5B45E9217EC130400CA2E16 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E5B45E9517EC130500CA2E16 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		E5B45E9717EC130500CA2E16 /* SPMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPMasterViewController.h; sourceTree = "<group>"; };
-		E5B45E9817EC130500CA2E16 /* SPMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPMasterViewController.m; sourceTree = "<group>"; };
-		E5B45E9A17EC130500CA2E16 /* SPDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPDetailViewController.h; sourceTree = "<group>"; };
-		E5B45E9B17EC130500CA2E16 /* SPDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPDetailViewController.m; sourceTree = "<group>"; };
+		E5B45E9717EC130500CA2E16 /* SPStockSelectorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPStockSelectorViewController.h; sourceTree = "<group>"; };
+		E5B45E9817EC130500CA2E16 /* SPStockSelectorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPStockSelectorViewController.m; sourceTree = "<group>"; };
+		E5B45E9A17EC130500CA2E16 /* SPStockPlotterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPStockPlotterView.h; sourceTree = "<group>"; };
+		E5B45E9B17EC130500CA2E16 /* SPStockPlotterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPStockPlotterView.m; sourceTree = "<group>"; };
+		E5B45EA217EC284500CA2E16 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E5B45EA717ECD3DB00CA2E16 /* SPYahooGetStock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPYahooGetStock.h; sourceTree = "<group>"; };
+		E5B45EA817ECD3DB00CA2E16 /* SPYahooGetStock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPYahooGetStock.m; sourceTree = "<group>"; };
+		E5B45EAA17ECD41D00CA2E16 /* SPStockValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPStockValue.h; sourceTree = "<group>"; };
+		E5B45EAB17ECD41D00CA2E16 /* SPStockValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPStockValue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5B45EA317EC284500CA2E16 /* QuartzCore.framework in Frameworks */,
 				E5B45E7D17EC130400CA2E16 /* UIKit.framework in Frameworks */,
 				E5B45E7F17EC130400CA2E16 /* Foundation.framework in Frameworks */,
 				E5B45E8117EC130400CA2E16 /* CoreGraphics.framework in Frameworks */,
@@ -76,6 +85,7 @@
 		E5B45E7B17EC130400CA2E16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E5B45EA217EC284500CA2E16 /* QuartzCore.framework */,
 				E5B45E7C17EC130400CA2E16 /* UIKit.framework */,
 				E5B45E7E17EC130400CA2E16 /* Foundation.framework */,
 				E5B45E8017EC130400CA2E16 /* CoreGraphics.framework */,
@@ -86,13 +96,9 @@
 		E5B45E8217EC130400CA2E16 /* StockPlotter */ = {
 			isa = PBXGroup;
 			children = (
-				E5B45E8B17EC130400CA2E16 /* SPAppDelegate.h */,
-				E5B45E8C17EC130400CA2E16 /* SPAppDelegate.m */,
 				E5B45E9417EC130500CA2E16 /* MainStoryboard.storyboard */,
-				E5B45E9717EC130500CA2E16 /* SPMasterViewController.h */,
-				E5B45E9817EC130500CA2E16 /* SPMasterViewController.m */,
-				E5B45E9A17EC130500CA2E16 /* SPDetailViewController.h */,
-				E5B45E9B17EC130500CA2E16 /* SPDetailViewController.m */,
+				E5B45EB117ECD4F000CA2E16 /* ViewsAndDelegates */,
+				E5B45EB017ECD4A800CA2E16 /* DataAcquisition */,
 				E5B45E8317EC130400CA2E16 /* Supporting Files */,
 			);
 			path = StockPlotter;
@@ -110,6 +116,30 @@
 				E5B45E9217EC130400CA2E16 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E5B45EB017ECD4A800CA2E16 /* DataAcquisition */ = {
+			isa = PBXGroup;
+			children = (
+				E5B45EA717ECD3DB00CA2E16 /* SPYahooGetStock.h */,
+				E5B45EA817ECD3DB00CA2E16 /* SPYahooGetStock.m */,
+				E5B45EAA17ECD41D00CA2E16 /* SPStockValue.h */,
+				E5B45EAB17ECD41D00CA2E16 /* SPStockValue.m */,
+			);
+			name = DataAcquisition;
+			sourceTree = "<group>";
+		};
+		E5B45EB117ECD4F000CA2E16 /* ViewsAndDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				E5B45E9717EC130500CA2E16 /* SPStockSelectorViewController.h */,
+				E5B45E9817EC130500CA2E16 /* SPStockSelectorViewController.m */,
+				E5B45E9A17EC130500CA2E16 /* SPStockPlotterView.h */,
+				E5B45E9B17EC130500CA2E16 /* SPStockPlotterView.m */,
+				E5B45E8C17EC130400CA2E16 /* SPAppDelegate.m */,
+				E5B45E8B17EC130400CA2E16 /* SPAppDelegate.h */,
+			);
+			name = ViewsAndDelegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,8 +211,10 @@
 			files = (
 				E5B45E8917EC130400CA2E16 /* main.m in Sources */,
 				E5B45E8D17EC130400CA2E16 /* SPAppDelegate.m in Sources */,
-				E5B45E9917EC130500CA2E16 /* SPMasterViewController.m in Sources */,
-				E5B45E9C17EC130500CA2E16 /* SPDetailViewController.m in Sources */,
+				E5B45E9917EC130500CA2E16 /* SPStockSelectorViewController.m in Sources */,
+				E5B45E9C17EC130500CA2E16 /* SPStockPlotterView.m in Sources */,
+				E5B45EA917ECD3DB00CA2E16 /* SPYahooGetStock.m in Sources */,
+				E5B45EAC17ECD41E00CA2E16 /* SPStockValue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +337,7 @@
 				E5B45EA117EC130500CA2E16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

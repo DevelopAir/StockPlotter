@@ -2,13 +2,16 @@
 //  SPAppDelegate.h
 //  StockPlotter
 //
-//  Created by Paul Duncanson on 9/19/13.
-//  Copyright (c) 2013 Paul Duncanson. All rights reserved.
+//  Created by Paul Duncanson on 9/22/13.
+//  Change History:
 //
 
 #import <UIKit/UIKit.h>
 
 @interface SPAppDelegate : UIResponder <UIApplicationDelegate>
+{
+
+}
 
 @property (strong, nonatomic) UIWindow *window;
 

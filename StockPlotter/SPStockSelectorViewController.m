@@ -1,21 +1,22 @@
 //
-//  SPMasterViewController.m
+//  SPStockSelectorViewController.m
 //  StockPlotter
 //
-//  Created by Paul Duncanson on 9/19/13.
-//  Copyright (c) 2013 Paul Duncanson. All rights reserved.
+//  Created by Paul Duncanson on 9/22/13.
+//  Change History:
 //
 
-#import "SPMasterViewController.h"
+#import "SPStockSelectorViewController.h"
+#import "SPStockPlotterView.h"
 
-#import "SPDetailViewController.h"
-
-@interface SPMasterViewController () {
+@interface SPStockSelectorViewController () {
     NSMutableArray *_objects;
+@private
+    NSMutableArray *dataArray;
 }
 @end
 
-@implementation SPMasterViewController
+@implementation SPStockSelectorViewController
 
 - (void)awakeFromNib
 {
@@ -25,11 +26,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    //Initialize the dataArray
+    dataArray = [[NSMutableArray alloc] init];
+    
+    //First section data
+    NSArray *firstItemsArray = [[NSArray alloc] initWithObjects:@"VOO", @"VB", @"VWO", @"VNQ", @"CORP", @"GOVT", nil];
+    NSDictionary *firstItemsArrayDict = [NSDictionary dictionaryWithObject:firstItemsArray forKey:@"data"];
+    [dataArray addObject:firstItemsArrayDict];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,22 +61,31 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    NSDictionary *dictionary = [dataArray objectAtIndex:0];
+    NSArray *array = [dictionary objectForKey:@"data"];
+    return [array count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    
+    NSDictionary *dictionary = [dataArray objectAtIndex:0];
+    NSArray *array = [dictionary objectForKey:@"data"];
+    NSString *cellValue = [array objectAtIndex:indexPath.row];
+    cell.textLabel.text = cellValue;
+    
     return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -83,6 +96,21 @@
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //Get the selected ETF
+    
+    NSString *selectedCell = nil;
+    NSDictionary *dictionary = [dataArray objectAtIndex:indexPath.section];
+    NSArray *array = [dictionary objectForKey:@"data"];
+    selectedCell = [array objectAtIndex:indexPath.row];
+    
+    NSLog(@"%@", selectedCell);
+    
+    [self performSegueWithIdentifier:@"showDetail" sender:self];
 }
 
 /*
@@ -104,9 +132,12 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
+    
+        NSUserDefaults *userDefault=[NSUserDefaults standardUserDefaults];
+
+        [userDefault setObject:_objects[indexPath.row] forKey:@"selectedETF"];
     }
 }
 
