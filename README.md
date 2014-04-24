@@ -5,7 +5,7 @@ An iPhone sample application that illustrates a plotted graph of trading activit
 Exchange Traded Funds per day, week, month, 6 months or a year.  <br>
 <br>
 Technology utilized:<br>
--Table View Controller<br>
+-Core Graphics with CALayer to display plotted graph<br>
 -NSURLConnection in a background thread using a delegate<br>
 -Web Scraping for collection of stock summary<br>
 -Use of Yahoo's Query Language (YQL) to retrieve stock data
