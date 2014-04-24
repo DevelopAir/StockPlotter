@@ -1,8 +1,7 @@
 StockPlotter
 ============
 
-An iPhone sample application that illustrates a plotted graph of trading activity for a select group of 
-Exchange Traded Funds per day, week, month, 6 months or a year.  <br>
+An iPhone app that provides plotted graph of trading activity for select group of ETF's.<br>
 <br>
 Technology utilized:<br>
 -Core Graphics with CALayer to display plotted graph<br>
